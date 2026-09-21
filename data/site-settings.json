@@ -3,5 +3,12 @@
   "hero": {
     "backgroundDriveId": null
   },
-  "sections": []
+  "sections": [
+    {
+      "id": "sec_mub5fygvqpee1",
+      "type": "gallery",
+      "title": "PRE-WEDDIND",
+      "folder": "pre-wedding"
+    }
+  ]
 }
