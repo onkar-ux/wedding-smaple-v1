@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="robots" content="noindex, nofollow" />
+<title>Admin — Site Control Panel</title>
+<link rel="stylesheet" href="assets/css/style.css" />
+</head>
+<body class="admin-page">
+
+<!-- ============ PASSWORD GATE ============ -->
+<div class="gate" id="gate">
+  <h2 id="gate-title">Set an admin password</h2>
+  <p id="gate-sub">This password only lives in this browser. Keep it with your business — clients should never see this page.</p>
+  <div class="field">
+    <label for="pw1">Password</label>
+    <input type="password" id="pw1" autocomplete="new-password" />
+  </div>
+  <div class="field" id="pw2-field">
+    <label for="pw2">Confirm password</label>
+    <input type="password" id="pw2" autocomplete="new-password" />
+  </div>
+  <button class="btn" id="gate-submit">Set password &amp; continue</button>
+  <p class="hint" id="gate-error" style="color:#d98a80;"></p>
+</div>
+
+<!-- ============ ADMIN SHELL ============ -->
+<div class="admin-shell" id="admin-shell" hidden>
+  <h1>Site control panel</h1>
+  <p class="sub">Map this couple's Google Drive folders to sections on their site. Photos and videos stay in Drive — nothing is ever uploaded here.</p>
+
+  <!-- Connect to this customer's repo -->
+  <div class="admin-card">
+    <h2>1. Connect to this site's GitHub repo</h2>
+    <div class="field">
+      <label for="pat-input">GitHub access token</label>
+      <input type="password" id="pat-input" placeholder="github_pat_..." autocomplete="off" />
+      <p class="hint">Fine-grained token scoped to <em>this customer's repo only</em>, with <strong>Contents: Read and write</strong>. Stored only in this browser.</p>
+    </div>
+    <button class="btn" id="save-pat">Save token</button>
+    <button class="btn btn--ghost" id="clear-pat">Forget token</button>
+    <p class="hint" id="pat-status"></p>
+  </div>
+
+  <!-- Connect to this customer's Drive -->
+  <div class="admin-card">
+    <h2>2. Connect to this couple's Google Drive</h2>
+    <p class="hint">Paste the Web App URL from the Apps Script you deployed inside <em>their</em> Google account. See <code>google-apps-script/Code.gs</code> in the project files for the one-time setup.</p>
+    <div class="field">
+      <label for="apps-script-url">Apps Script Web App URL</label>
+      <input type="text" id="apps-script-url" placeholder="https://script.google.com/macros/s/.../exec" />
+    </div>
+    <button class="btn" id="save-apps-script">Save connection</button>
+    <p class="hint" id="apps-script-status"></p>
+  </div>
+
+  <!-- Hero background -->
+  <div class="admin-card">
+    <h2>3. Homepage background photo</h2>
+    <p class="hint">Paste the share link of one photo already in their Drive (any folder). It'll be used as the full-bleed background behind the couple's names.</p>
+    <div class="field">
+      <label for="hero-link">Google Drive photo link</label>
+      <input type="text" id="hero-link" placeholder="https://drive.google.com/file/d/FILE_ID/view" />
+    </div>
+    <button class="btn" id="save-hero">Set background</button>
+    <div class="hero-preview" id="hero-preview" hidden>
+      <img id="hero-preview-img" alt="Current homepage background" />
+      <button class="btn btn--ghost" id="clear-hero">Remove</button>
+    </div>
+  </div>
+
+  <!-- Sections -->
+  <div class="admin-card">
+    <h2>4. Sections</h2>
+    <p class="hint">Each section is a folder the couple's photographer (you) already created in their Drive — e.g. <code>pre-wedding</code>, <code>haldi</code>, <code>ceremony-highlights</code>, or <code>web_reels</code> for short reels.</p>
+
+    <div class="field-row">
+      <div class="field">
+        <label for="new-section-title">Section title</label>
+        <input type="text" id="new-section-title" placeholder="Pre-Wedding" />
+      </div>
+      <div class="field">
+        <label for="new-section-type">Type</label>
+        <select id="new-section-type">
+          <option value="gallery">Photo gallery</option>
+          <option value="video">Video (long-form)</option>
+          <option value="reels">Reels (short vertical clips)</option>
+        </select>
+      </div>
+      <div class="field">
+        <label for="new-section-folder">Drive folder name</label>
+        <input type="text" id="new-section-folder" list="folder-suggestions" placeholder="pre-wedding" />
+        <datalist id="folder-suggestions"></datalist>
+      </div>
+    </div>
+    <button class="btn" id="add-section">Add section</button>
+    <button class="btn btn--ghost" id="refresh-folders">Refresh folder list</button>
+
+    <div id="section-list" style="margin-top:1.25rem;"></div>
+  </div>
+
+  <button class="btn btn--ghost" id="lock-again">Lock admin panel</button>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script src="assets/js/config.js"></script>
+<script src="assets/js/admin.js"></script>
+</body>
+</html>

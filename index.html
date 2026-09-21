@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Ava &amp; Noah — We're Getting Married</title>
+<meta name="description" content="Join us as we tie the knot." />
+
+<link rel="preconnect" href="https://drive.google.com" />
+<link rel="stylesheet" href="assets/css/style.css" />
+</head>
+<body>
+
+<!-- ============ HERO ============ -->
+<section class="hero" id="hero">
+  <img class="hero-bg-img" id="hero-bg-img" alt="" />
+  <p class="eyebrow" id="hero-eyebrow">We're getting married</p>
+  <h1><span id="name-a">Ava</span><span class="amp">&amp;</span><span id="name-b">Noah</span></h1>
+  <p class="meta" id="hero-meta">Loading date…</p>
+  <span class="scroll-cue">Scroll</span>
+</section>
+
+<!-- ============ STORY ============ -->
+<section class="section story reveal">
+  <p class="eyebrow">Our story</p>
+  <h2>How it started</h2>
+  <p id="story-text">Loading…</p>
+  <div class="divider" aria-hidden="true">
+    <svg viewBox="0 0 220 56"><path d="M4 28 C 60 4, 100 52, 140 28 S 200 4, 216 28" />
+      <path class="leaf" d="M70 24 C 76 12, 88 12, 92 22 C 84 26, 76 26, 70 24Z" />
+      <path class="leaf" d="M150 32 C 156 20, 168 20, 172 30 C 164 34, 156 34, 150 32Z" />
+    </svg>
+  </div>
+</section>
+
+<!-- ============ SCHEDULE ============ -->
+<section class="section section--alt reveal">
+  <div class="inner">
+    <p class="eyebrow">The day</p>
+    <h2>Schedule</h2>
+    <ol class="schedule" id="schedule-list"></ol>
+  </div>
+</section>
+
+<!-- ============ DYNAMIC SECTIONS ============
+     Populated entirely by main.js from data/site-settings.json.
+     Each entry becomes a gallery, a video section, or a reels strip,
+     depending on how the admin mapped it to a Drive folder. -->
+<div id="dynamic-sections"></div>
+
+<footer class="site-footer">
+  <p>Made with love &middot; hosted on GitHub Pages</p>
+</footer>
+
+<!-- ============ LIGHTBOX (shared by every gallery section) ============ -->
+<div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Photo viewer">
+  <button class="lightbox-close" id="lb-close" aria-label="Close">&times;</button>
+  <button class="lightbox-nav prev" id="lb-prev" aria-label="Previous photo">&#8592;</button>
+  <img id="lb-img" alt="" />
+  <button class="lightbox-nav next" id="lb-next" aria-label="Next photo">&#8594;</button>
+  <span class="lightbox-count" id="lb-count"></span>
+</div>
+
+<script src="assets/js/config.js"></script>
+<script src="assets/js/main.js"></script>
+</body>
+</html>
