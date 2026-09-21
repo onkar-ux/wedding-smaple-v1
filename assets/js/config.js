@@ -9,8 +9,8 @@ const SITE_CONFIG = {
   // This customer's GitHub repo (hosts the code + the tiny settings
   // file only — never photos or videos).
   github: {
-    owner: "YOUR_GITHUB_USERNAME",
-    repo: "YOUR_REPO_NAME",
+    owner: "onkar-ux",
+    repo: "wedding-smaple-v1",
     branch: "main",
   },
 
